@@ -26,17 +26,18 @@ function Ball(x, y, color, board) {
     self.checkCollision = function () {
         var brick = null;
         self.board.getBlocks().forEach(function (bar) {
-            var distanceX = Math.abs((self.x + Ball_Radius/2) - (blocks.getX() + Block_Width/2));
-            var distanceY = Math.abs((self.y + Ball_Radius/2) - (blocks.getY() + Block_Height/2));
-            if(distanceX < Ball_Radius/2 + Block_Width/2 && distanceY < Ball_Radius/2 + Block_Height/2){
+            var distanceX = Math.abs((self.x + Ball_Radius) - (bar.getX() + Bar_Width/2));
+            var distanceY = Math.abs((self.y + Ball_Radius) - (bar.getY() + Bar_Height));
+            if(distanceX < Ball_Radius + Bar_Width/2 && distanceY < Ball_Radius + Bar_Height/2){
                 brick = bar;
                 self.dy = - self.dy;
-
             }
         });
 
         if(brick !== null){
             self.board.removeBlock(brick);
+            self.board.score.setPoint();
+
         }
     }
 

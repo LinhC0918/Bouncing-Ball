@@ -1,26 +1,35 @@
-function Bar(x, y, color, board) {
-    var self = this;
-    self.x = x;
-    self.y = y;
-    self.color = color;
-    self.board = board;
+function Bar(x, y, color,width, height, board) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.width = width;
+    this.height = height;
+    this.board = board;
 
-    self.render = function () {
-        var contextBar = self.board.getCanvas().getContext('2d');
-        contextBar.fillStyle = self.color;
-        contextBar.fillRect(self.x, self.y, Bar_Width, Bar_Height);
+    this.render = function () {
+        var contextBar = this.board.getCanvas().getContext('2d');
+        contextBar.fillStyle = this.color;
+        contextBar.fillRect(this.x, this.y, this.width, this.height);
 
     };
 
-    self.moveRight = function () {
-        self.x += speedBar;
-        if (self.x >= canvas.width - Bar_Width)
-            self.x = canvas.width - Bar_Width;
+    this.moveRight = function () {
+        this.x += speedBar;
+        if (this.x >= canvas.width - Bar_Width)
+            this.x = canvas.width - Bar_Width;
     };
 
-    self.moveLeft = function () {
-        self.x -= speedBar;
-        if (self.x <= 0)
-            self.x = 0;
-    }
+    this.moveLeft = function () {
+        this.x -= speedBar;
+        if (this.x <= 0)
+            this.x = 0;
+    };
+
+    this.getX = function () {
+        return this.x;
+    };
+
+    this.getY = function () {
+        return this.y;
+    };
 }
