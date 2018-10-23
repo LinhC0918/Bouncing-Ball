@@ -5,4 +5,7 @@ gameboard.render();
 function onKeyDown(event) {
     gameboard.moveBar(event);
 }
+function move() {
+    gameboard.move();
+}
 

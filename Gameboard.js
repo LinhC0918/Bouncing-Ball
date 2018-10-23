@@ -59,9 +59,6 @@ function GameBoard(canvas) {
             case 39:
                 self.bar.moveRight();
                 break;
-            case 32:
-                self.move();
-                break;
         }
     };
 
